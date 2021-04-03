@@ -39,8 +39,6 @@ const newArr = usernames.map((user, i) => {
   };
 });
 
-console.log(newArr);
-
 const findUser = newArr.find((user) => user.name === "Luc");
 
-console.log(findUser);
+export { usernames, ages, hobbies, findUser };

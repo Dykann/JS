@@ -34,3 +34,5 @@ const personsAlive = obj
         person.width
       }px&h=${person.height}em`
   );
+
+export { obj, personsAlive };

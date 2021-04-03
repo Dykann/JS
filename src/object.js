@@ -35,4 +35,4 @@ function updateRecords(object, id, prop, value) {
   return object;
 }
 
-console.log(updateRecords(collection, 5439, "tracks", ""));
+export { collection, updateRecords };
