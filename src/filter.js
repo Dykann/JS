@@ -2,6 +2,8 @@
 I wanna get only people who are alive and from that, receive links that have this shape: "http://owen.com/blue-sky?w=210px&h=120em"
 */
 
+export { obj, personsAlive };
+
 const obj = [
   {
     name: "blue-sky",
@@ -34,5 +36,3 @@ const personsAlive = obj
         person.width
       }px&h=${person.height}em`
   );
-
-export { obj, personsAlive };

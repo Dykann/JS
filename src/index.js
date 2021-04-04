@@ -18,3 +18,8 @@ console.log(map.usernames, map.ages, map.hobbies);
 // Object
 import * as object from "./object.js";
 console.log(object.updateRecords(object.collection, 5439, "tracks", ""));
+
+// LocalStorage
+import * as json from "./json.js";
+console.log(JSON.stringify(json.dykann));
+console.log(json.toJS);
