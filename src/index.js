@@ -23,3 +23,7 @@ console.log(object.updateRecords(object.collection, 5439, "tracks", ""));
 import * as json from "./json.js";
 console.log(JSON.stringify(json.dykann));
 console.log(json.toJS);
+
+// Fetch
+import { names } from "./fetch.js";
+console.log(names);
