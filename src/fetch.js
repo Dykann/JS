@@ -25,7 +25,7 @@
   
 */
 
-const names = [
+export const names = [
   "Leanne Graham",
   "Ervin Howell",
   "Clementine Bauch",
@@ -41,7 +41,7 @@ const names = [
 fetch("https://jsonplaceholder.typicode.com/posts")
   .then((res) => res.json())
   .then((data) =>
-    data.map(function (user, i) {
+    data.map((user, i) => {
       return {
         ...user,
         id: `00${user.id}`,
