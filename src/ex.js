@@ -114,6 +114,9 @@ const div = document.querySelector("div");
 div.innerHTML = arr
   .map((item) => {
     return `<button data-btn="btn${item}">button ${item}</button>`;
+    // return (
+    // "<button data-btn=" + "btn" + i + ">" + "button " + item + "</button>"
+    // );
   })
   .join("");
 
