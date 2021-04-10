@@ -111,6 +111,17 @@ SECOND_btn.addEventListener("click", displayItems);
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const div = document.querySelector("div");
 
+// 1) appendChild way
+
+arr.forEach((number) => {
+  const btn = document.createElement("button");
+  btn.textContent = `button ${number}`;
+  btn.setAttribute("data-btn", "btn" + number);
+  div.appendChild(btn);
+});
+
+// 2) innerHTML way
+
 div.innerHTML = arr
   .map((item) => {
     return `<button data-btn="btn${item}">button ${item}</button>`;
