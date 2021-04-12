@@ -32,24 +32,45 @@ function toLocalStorage() {
 //      Antonette: Shanna@melissa.tv
 
 // création d'un container <ul> dans le html
+
 const container = document.querySelector(".container");
-
 const SECOND_link = "https://jsonplaceholder.typicode.com/users";
+let CLICK = 0;
+let storage = [];
 
-function displayItems() {
-  fetch(SECOND_link)
-    .then((res) => res.json())
-    .then((data) =>
-      data.map((user) => {
-        return { username: user.name, email: user.email };
+function displayDOM() {
+  CLICK++;
+  getItems();
+  checkClick();
+}
+
+function getItems() {
+  if (CLICK === 1) {
+    fetch(SECOND_link)
+      .then((res) => res.json())
+      .then((data) =>
+        data.map((user) => {
+          return { username: user.name, email: user.email };
+        })
+      )
+      .then((newData) => {
+        return newData
+          .map((user) => `<li>${user.username}: ${user.email}</li>`)
+          .join("");
       })
-    )
-    .then((newData) => {
-      console.log(newData);
-      container.innerHTML = newData
-        .map((user) => `<li>${user.username}: ${user.email}</li>`)
-        .join("");
-    });
+      .then((filteredData) => {
+        storage = filteredData;
+        container.innerHTML = storage;
+      });
+  }
+}
+
+function checkClick() {
+  if (CLICK % 2 === 0) {
+    container.innerHTML = "";
+  } else {
+    container.innerHTML = storage;
+  }
 }
 
 //   EXO 3
@@ -103,7 +124,7 @@ const FIRST_btn = document.querySelector(".btn-first");
 const SECOND_btn = document.querySelector(".btn-second");
 
 FIRST_btn.addEventListener("click", toLocalStorage);
-SECOND_btn.addEventListener("click", displayItems);
+SECOND_btn.addEventListener("click", displayDOM);
 
 //   EXO 5
 //   Creer dynamiquement 10 boutons en JS et les displays dans le DOM. Leur ajouter un attribut unique data-btn="btn1" data-btn="btn2" ... data-btn="btn10"
@@ -111,22 +132,20 @@ SECOND_btn.addEventListener("click", displayItems);
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const div = document.querySelector("div");
 
-// 1) appendChild way
+// 1) append way
 
 arr.forEach((number) => {
   const btn = document.createElement("button");
   btn.textContent = `button ${number}`;
-  btn.setAttribute("data-btn", "btn" + number);
+  btn.setAttribute("data-btn", `btn${number}`);
   div.appendChild(btn);
 });
 
 // 2) innerHTML way
 
-div.innerHTML = arr
-  .map((item) => {
-    return `<button data-btn="btn${item}">button ${item}</button>`;
-    // return "<button data-btn=btn" + i + ">" + "button " + item + "</button>";
-  })
-  .join("");
-
-console.log(div);
+// const map = (div.innerHTML = arr
+//   .map((item, i) => {
+//     return `<button data-btn="btn${item}">button ${item}</button>`;
+//     // return "<button data-btn=btn" + i + ">" + "button " + item + "</button>";
+//   })
+//   .join(""));
