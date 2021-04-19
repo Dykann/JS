@@ -3,7 +3,6 @@
 // Si la position du titre est un multiple de 3 alors ajouter <span class="special">SPECIAL</span>
 
 const titles = document.querySelectorAll(".titre-wrapper");
-const arr = [...titles];
 
 titles.forEach((title, i) => {
   if (i % 3 === 0) {
