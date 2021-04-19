@@ -1,27 +1,14 @@
-const articles = document.querySelectorAll(".group-wrapper");
+// Je veux que tu me recuperes tous les titres des articles et que tu les transformes pour les avoir à ce format :
+// "<h1 class="jvc-title">Age of Empires IV et Mythologies : quel avenir ?<span>+</span></h1>"
+// Si la position du titre est un multiple de 3 alors ajouter <span class="special">SPECIAL</span>
 
-const titleTags = document.querySelectorAll(".titre-wrapper");
-const titlesArr = [...titleTags];
-const titles = titlesArr.map((titre) => titre.innerText);
+const titles = document.querySelectorAll(".titre-wrapper");
+const arr = [...titles];
 
-articles.forEach((article, index) => {
-  article.innerHTML = `<h1 class="jvc-title">${titles[index]}<span>+</span></h1>`;
+titles.forEach((title, i) => {
+  if (i % 3 === 0) {
+    return (title.outerHTML = `<h1 class="jvc-title"><span class="special">SPECIAL</span>${title.innerText}<span>+</span></h1>`);
+  } else {
+    return (title.outerHTML = `<h1 class="jvc-title">${title.innerText}<span>+</span></h1>`);
+  }
 });
-
-articles.forEach((article, index) => {
-  article.innerHTML = `<h1 class="jvc-title">${article.innerText}<span>+</span></h1>`;
-});
-
-// FAUX IL NE FAUT pas map car à chaque article qui est innerHTML, on leur renvoie tout l'array (contenant tous les titres)
-
-// articles.forEach((article) => {
-//   article.innerHTML = titles.map((title, i) => {
-//     return `<h1 class="jvc-title">${title[i]}<span>+</span></h1>`;
-//   });
-// });
-
-// FAUX car si on insère [index] cela va cibler la INDEXième lettre (allant de 0 à 17) à chaque article
-
-// articles.forEach((article, index) => {
-//   article.innerHTML = `<h1 class="jvc-title">${article.innerText[index]}<span>+</span></h1>`;
-// });
