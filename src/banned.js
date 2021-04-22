@@ -1,3 +1,5 @@
+// clean way
+
 fetch("https://netflixvirus.vercel.app/api/pizzaduo")
   .then((res) => res.json())
   .then((data) => {
@@ -10,3 +12,18 @@ fetch("https://netflixvirus.vercel.app/api/pizzaduo")
       });
     console.log(banned);
   });
+
+// disgusting way
+
+// fetch("https://netflixvirus.vercel.app/api/pizzaduo")
+// .then((res) => res.json())
+// .then((data) => {
+//   const newData = data
+//     .filter((comment) => comment.review.includes("1,0"))
+//     .map((person) => person.name.split(" "))
+//     .map((person) => {
+//       person[1] = "BANNED";
+//       return person.join(" ");
+//     });
+//   console.log(newData);
+// });
