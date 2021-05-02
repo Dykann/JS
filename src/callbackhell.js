@@ -26,7 +26,7 @@
 //   }, 2000);
 // }, 1000);
 
-const setBackground = new Promise((resolve, reject) => {
+const setBackground = new Promise((resolve) => {
   resolve();
 });
 
