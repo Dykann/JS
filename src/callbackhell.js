@@ -27,50 +27,55 @@
 // }, 1000);
 
 const setBackground = new Promise((resolve) => {
-  resolve();
-});
-
-setBackground
+  setTimeout(resolve, 1000);
+})
   .then(() => {
-    setTimeout(() => {
+    return new Promise((resolve) => {
       console.log("first timeout after 1s...");
-    }, 1000);
+      setTimeout(resolve, 2000);
+    });
   })
   .then(() => {
-    setTimeout(() => {
+    return new Promise((resolve) => {
       console.log("second timeout after another 2s...");
-    }, 3000);
+      setTimeout(resolve, 1000);
+    });
   })
   .then(() => {
-    setTimeout(() => {
+    return new Promise((resolve) => {
       console.log("third timeout after another 1s...");
-    }, 4000);
+      setTimeout(resolve, 1500);
+    });
   })
   .then(() => {
-    setTimeout(() => {
+    return new Promise((resolve) => {
       console.log("fourth timeout after another 1.5s...");
-    }, 5500);
+      setTimeout(resolve, 1000);
+    });
   })
   .then(() => {
-    setTimeout(() => {
+    return new Promise((resolve) => {
       console.log("fifth timeout after another 1s...");
-    }, 6500);
+      setTimeout(resolve, 2000);
+    });
   })
   .then(() => {
-    setTimeout(() => {
+    return new Promise((resolve) => {
       console.log("sixth timeout after another 2s...");
-    }, 8500);
+      setTimeout(resolve, 1000);
+    });
   })
   .then(() => {
-    setTimeout(() => {
+    return new Promise((resolve) => {
       console.log("seventh timeout after another 1s...");
-    }, 9500);
+      setTimeout(resolve, 2500);
+    });
   })
   .then(() => {
-    setTimeout(() => {
+    return new Promise((resolve) => {
       console.log(
-        "tada finished after another 2.5s! background-color is now red ;)"
+        "tada finished after another 2.5s! background-color is now red ;"
       );
       document.body.style.backgroundColor = "red";
-    }, 12000);
+    });
   });
