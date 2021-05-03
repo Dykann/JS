@@ -36,11 +36,14 @@ const btnAge = document.querySelector(".btn-age");
 
 btnAge.addEventListener("click", function () {
   const sortedByDescAge = [...persons].sort((firstPerson, secondPerson) => {
-    if (firstPerson.age > secondPerson.age) {
-      return -1;
-    } else {
-      return 1;
-    }
+    // Ternary operator way
+    return firstPerson.age > secondPerson.age ? -1 : 1;
+    // If way
+    // if (firstPerson.age > secondPerson.age) {
+    //   return -1;
+    // } else {
+    //   return 1;
+    // }
   });
 
   console.table(sortedByDescAge);
@@ -57,11 +60,15 @@ const btnCity = document.querySelector(".btn-city");
 
 btnCity.addEventListener("click", function () {
   const sortedByAscCity = [...persons].sort((firstPerson, secondPerson) => {
-    if (firstPerson.location > secondPerson.location) {
-      return 1;
-    } else {
-      return -1;
-    }
+    // Ternary operator way
+    return firstPerson.location > secondPerson.location ? 1 : -1;
+
+    // If way
+    // if (firstPerson.location > secondPerson.location) {
+    //   return 1;
+    // } else {
+    //   return -1;
+    // }
   });
 
   console.table(sortedByAscCity);
@@ -78,11 +85,15 @@ const btnName = document.querySelector(".btn-name");
 
 btnName.addEventListener("click", function () {
   const sortedByDescName = persons.sort((firstPerson, secondPerson) => {
-    if (firstPerson.name > secondPerson.name) {
-      return -1;
-    } else {
-      return 1;
-    }
+    // Ternary operator way
+    return firstPerson.name > secondPerson.name ? -1 : 1;
+
+    // If way
+    // if (firstPerson.name > secondPerson.name) {
+    //   return -1;
+    // } else {
+    //   return 1;
+    // }
   });
 
   console.table(sortedByDescName);
