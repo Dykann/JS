@@ -116,25 +116,25 @@ const namesTwo = [
   "Lauri",
 ];
 
-const names = [...namesOne, ...namesTwo];
+const fusionNames = [...namesOne, ...namesTwo];
+console.log(fusionNames);
+
+const names = [...new Set(fusionNames)];
 console.log(names);
 
-const filteredNames = [...new Set(names)];
-console.log(filteredNames);
-
-function findMatches(word, filteredNames) {
-  return filteredNames.filter((name) => {
+function findMatches(word, names) {
+  return names.filter((name) => {
     const regex = new RegExp(word, "giy");
     return name.match(regex);
   });
 }
 
 function displayMatches() {
-  const matchArr = findMatches(this.value, filteredNames);
-  if (matchArr.length === 0) {
+  const namesMatched = findMatches(this.value, names);
+  if (namesMatched.length === 0) {
     container.innerHTML = `Aucun prénom ne correspond a ce que vous avez rentré pour : ${this.value}`;
   } else {
-    container.innerHTML = matchArr
+    container.innerHTML = namesMatched
       .map((name) => {
         return `<li>
         ${name}
